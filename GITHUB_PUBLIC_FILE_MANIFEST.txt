@@ -1,0 +1,35 @@
+Public release staged-file manifest
+
+This manifest records the public files staged immediately before this manifest
+was added. It excludes itself by design. No restricted participant-level data,
+raw questionnaire responses, drawings, teacher records, private crosswalks,
+internal validation outputs, or restricted rerun files are listed.
+
+README.md
+configs/final_analysis_config.json
+derived_results/factor_questionnaire_results_FINAL.csv
+derived_results/fixed_scale_sensitivity.csv
+derived_results/nested_scale_results.csv
+derived_results/selected_scale_frequency.csv
+derived_results/separate_morphology_sensitivity.csv
+derived_results/teacher_alignment_summary.csv
+derived_results/visual_residual_results_FINAL.csv
+docs/data_dictionary.md
+docs/private_input_schema.md
+docs/reproduction_instructions.md
+environment/requirements.txt
+environment/software_versions.md
+examples/synthetic_smoke_test/analysis_smoke_test.py
+examples/synthetic_smoke_test/smoke_test.py
+folds/outer_fold_assignments.csv
+selected_items/selected_item_frequency.csv
+selected_items/selected_items_by_fold.csv
+src/core.py
+src/generate_tables_figures.py
+src/models.py
+src/preprocess_images.py
+src/run_crossfitted_visual_residual.py
+src/run_nested_scale_analysis.py
+src/run_questionnaire_cv.py
+src/run_teacher_external_analysis.py
+src/summarize_primary_results.py

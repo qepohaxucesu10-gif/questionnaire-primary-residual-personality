@@ -1,0 +1,119 @@
+{
+  "item_selector": {
+    "model": "Ridge",
+    "alpha": 10.0,
+    "top_k_absolute_coefficients_per_factor": 2,
+    "union_across_factors": true
+  },
+  "questionnaire_tower": {
+    "layers": [
+      "Linear(input,48)",
+      "ReLU",
+      "Dropout(0.20)",
+      "Linear(48,16)",
+      "Sigmoid"
+    ],
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 16,
+    "epochs": 80,
+    "loss": "normalized-score MSE",
+    "parameters": {
+      "31_items": 2320,
+      "32_items": 2368
+    }
+  },
+  "visual_tinycnn": {
+    "input_shape": [
+      1,
+      128,
+      128
+    ],
+    "channels": [
+      16,
+      32,
+      48
+    ],
+    "kernel_size": 3,
+    "batch_normalization": true,
+    "max_pool_after_blocks": [
+      1,
+      2
+    ],
+    "factor_map_convolution": "1x1, 48 to 16",
+    "pooling": "global average",
+    "output": "tanh",
+    "parameters": 19648,
+    "optimizer": "Adam",
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "batch_size": 16,
+    "epochs": 100,
+    "loss": "Sten residual MSE",
+    "augmentation": false,
+    "early_stopping": false
+  },
+  "outer_cv": {
+    "repeats": 5,
+    "folds": 5,
+    "repeat_seeds": [
+      1101,
+      2202,
+      3303,
+      4404,
+      5505
+    ],
+    "assignment_file": "folds/outer_fold_assignments.csv"
+  },
+  "inner_crossfit": {
+    "folds": 5,
+    "questionnaire_selection_scaling_and_fitting_within_inner_train": true
+  },
+  "scale_grid": [
+    0,
+    0.005,
+    0.01,
+    0.025,
+    0.05,
+    0.075,
+    0.1
+  ],
+  "teacher_analysis": {
+    "salience": "absolute Sten deviation from 5.5",
+    "top_k": 3,
+    "tie_rule": "stable factor order",
+    "monte_carlo_draws": 20000
+  },
+  "image_preprocessing": {
+    "input": "RGB",
+    "maximum_processing_size": 512,
+    "per_channel_gaussian_blur_radius": 35,
+    "background_divisor_floor": 8,
+    "grayscale_weights": [
+      0.2126,
+      0.7152,
+      0.0722
+    ],
+    "local_mean_radius": 9,
+    "darkness_floor": 3.0,
+    "local_deviation_multiplier": 0.35,
+    "mask_dilation_pixels": 1,
+    "output_size": 128,
+    "padding_value": 255
+  },
+  "outcome_normalization": {
+    "formula": "(Sten - 1) / 9",
+    "reference_units": "Sten 1-10"
+  },
+  "random_seed_policy": {
+    "outer_repeat_seeds": [
+      1101,
+      2202,
+      3303,
+      4404,
+      5505
+    ],
+    "model_seed_formulas": "retained verbatim in released training scripts"
+  }
+}
