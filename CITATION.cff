@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived software release associated with the manuscript."
+type: software
+title: "Testing a Dual-Process-Inspired Questionnaire-Primary Residual Framework for Personality Prediction: An Exploratory Study with Static Line Drawings"
+authors:
+  - family-names: Weng
+    given-names: Lifen
+  - family-names: Shi
+    given-names: Yiyang
+repository-code: "https://github.com/qepohaxucesu10-gif/questionnaire-primary-residual-personality"
+version: 1.0.1
+date-released: 2026-09-14
